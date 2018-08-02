@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy hh:mm:ss:sss z}] %t %5p %c{2}: %m%n" />
+		</layout>
+	</appender>
+	<appender name="dailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="info"></param>
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="/data/orderwildfly/log/realtimeSite.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] [%t] [%c.%M():%L] %m%n"></param>
+		</layout>
+	</appender>
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+        <appender-ref ref="dailyRollingFile" />
+	</root>
+</log4j:configuration>
