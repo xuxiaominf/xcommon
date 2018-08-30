@@ -1,10 +1,9 @@
-package utils.xcommon.util.lock.test;
+package utils.xcommon.util.lock.test.t0lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject;
 
 public class TestLock implements Lock {
 	/** Synchronizer providing all implementation mechanics */
@@ -26,16 +25,13 @@ public class TestLock implements Lock {
 			}
 			final Thread current = Thread.currentThread();
 			int state = getState();
-			System.out.println(String.format("%s tryAcquire(%s)",Thread.currentThread().getName(), arg));
 			if (getExclusiveOwnerThread() == null && state == arg) {
-				System.out.println(String.format("%s tryAcquire(%s) in",Thread.currentThread().getName(), arg));
+				//如果获取锁成功，设置当前线程为执行线程
 				if (compareAndSetState(state, arg)) {
-					System.out.println(String.format("%s tryAcquire(%s) in success",Thread.currentThread().getName(), arg));
 					setExclusiveOwnerThread(current);
 					return true;
 				}
 			}
-			System.out.println(String.format("%s tryAcquire(%s) failed",Thread.currentThread().getName(), arg));
 			return false;
 		}
 		@Override
@@ -44,9 +40,8 @@ public class TestLock implements Lock {
 				throw new Error("Arg must 1 or 0");
 			}
 			int modState = ~arg << 31 >>> 31;
-			System.out.println(String.format("%s tryRelease(%s)",Thread.currentThread().getName(),arg));
 			boolean setted = compareAndSetState(arg, modState);
-			System.out.println(String.format("%s tryRelease(%s) result %s",Thread.currentThread().getName(),arg, setted));
+			//设置当前执行线程为空
 			if (setted) {
 				setExclusiveOwnerThread(null);
 			}
