@@ -11,7 +11,7 @@ import java.util.concurrent.ForkJoinTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import utils.xcommon.util.lock.DistributedLockTask;
+import utils.xcommon.util.lock.zk.DistributedLockTask;
 
 /**
  * 

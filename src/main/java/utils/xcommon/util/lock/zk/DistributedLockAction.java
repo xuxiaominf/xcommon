@@ -2,7 +2,7 @@
  * Meilele.com Inc.
  * Copyright (c) 2004-2016 All Rights Reserved.
  */
-package utils.xcommon.util.lock;
+package utils.xcommon.util.lock.zk;
 
 import java.util.concurrent.RecursiveAction;
 

@@ -7,7 +7,7 @@ package utils.xcommon.util.test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import utils.xcommon.util.lock.CallBack;
+import utils.xcommon.util.lock.zk.CallBack;
 
 /**
  * 

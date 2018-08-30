@@ -1,4 +1,4 @@
-package utils.xcommon.util.lock;
+package utils.xcommon.util.lock.zk;
 
 import java.io.IOException;
 import java.util.Collections;
