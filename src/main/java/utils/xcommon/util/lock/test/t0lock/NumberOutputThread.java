@@ -8,14 +8,11 @@ public class NumberOutputThread extends Thread {
 	}
 
 	public void run() {
-		for(int i = 1;i < 53;i++ ){
-			if(i % 2 == 1){
-				lock.tryLock(0);
-			}
-			System.out.print(i);
-			if(i % 2 == 0){
-				lock.unlock(0);
-			}
+		for(int i = 0;i < 26;i++ ){
+			lock.tryLock(0);
+			System.out.print(i * 2 + 1);
+			System.out.print(i * 2 + 2);
+			lock.unlock(0);
 		}
 	}
 }

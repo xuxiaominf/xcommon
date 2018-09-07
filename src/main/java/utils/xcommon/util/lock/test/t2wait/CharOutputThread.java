@@ -9,10 +9,16 @@ public class CharOutputThread extends Thread {
 	}
 
 	public void run() {
-		for (int i = 0; i < 26; i++) {
-			synchronized (lock) {
+		synchronized (lock) {
+			for (int i = 0; i < 26; i++) {
 				System.out.print((char) (i + 'A'));
-				notifyAll();
+				lock.notifyAll();
+				try {
+					lock.wait(1000);
+				} catch (InterruptedException e) {
+					// 测试代码，不处理中断
+					e.printStackTrace();
+				}
 			}
 		}
 	}

@@ -14,9 +14,10 @@ public class NumberOutputThread extends Thread {
 				System.out.print(i * 2 + 1);
 				System.out.print(i * 2 + 2);
 				try {
-					wait(1000);
+					lock.notifyAll();
+					lock.wait(1000);
 				} catch (InterruptedException e) {
-					// 测试代码，暂时不处理中断
+					// 测试代码，不处理中断
 					e.printStackTrace();
 				}
 			}
