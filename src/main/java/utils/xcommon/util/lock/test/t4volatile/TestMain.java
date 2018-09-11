@@ -1,4 +1,4 @@
-package utils.xcommon.util.lock.test.t3volatile;
+package utils.xcommon.util.lock.test.t4volatile;
 
 public class TestMain {
 	public static void main(String[] args) {

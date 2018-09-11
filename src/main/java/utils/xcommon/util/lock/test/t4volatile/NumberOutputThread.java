@@ -1,4 +1,4 @@
-package utils.xcommon.util.lock.test.t3volatile;
+package utils.xcommon.util.lock.test.t4volatile;
 
 public class NumberOutputThread extends Thread {
 	private TestObject lock = null;

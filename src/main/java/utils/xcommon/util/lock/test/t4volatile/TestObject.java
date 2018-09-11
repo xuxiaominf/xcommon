@@ -1,4 +1,4 @@
-package utils.xcommon.util.lock.test.t3volatile;
+package utils.xcommon.util.lock.test.t4volatile;
 
 public class TestObject  {
 //	private int state = 0;
@@ -12,6 +12,6 @@ public class TestObject  {
 
 	public void setState(int st) {
 //		state.compareAndSet(state.get(), st);
-		this.state = state;
+		this.state = st;
 	}
 }
