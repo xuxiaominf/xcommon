@@ -7,17 +7,14 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 	public AVLTree(T data) {
 		root = new AVLNode<T>(data);
 	}
-	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	@Override
 	public int size() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	@Override
 	public int height() {
 		return height(root);
 	}
@@ -28,12 +25,10 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 		return node.getHeight();
 	}
 	
-	@Override
 	public String preOrder() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
 	public String inOrder() {
 		return inOrder(root);
 	}
@@ -48,17 +43,14 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 		}
 		return sb.toString();
 	}
-	@Override
 	public String postOrder() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
 	public String levelOrder() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
 	public void insert(T data) {
 		root  = insert(root,data);
 	}
@@ -154,7 +146,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 	
 	
 	
-	@Override
 	public void remove(T data) {
 		root = remove(root, data);
 	}
@@ -209,7 +200,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 		}
 		return root;
 	}
-	@Override
 	public T findMin() {
 		AVLNode<T> min = findMin(root);
 		return min!=null?min.getData():null;
@@ -219,7 +209,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 		return root.getLeft()!=null?findMin(root.getLeft()):root;
 	}
 	
-	@Override
 	public T findMax() {
 		AVLNode<T> max = findMax(root);
 		return max!=null?max.getData():null;
@@ -228,17 +217,14 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T>{
 	public AVLNode<T> findMax(AVLNode<T> root) {
 		return root.getRight()!=null?findMax(root.getRight()):root;
 	}
-	@Override
 	public BinaryTreeNode<T> findNode(T data) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
 	public boolean contains(T data) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
 	}
