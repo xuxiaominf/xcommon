@@ -5,56 +5,61 @@ import java.util.Arrays;
 import com.alibaba.fastjson.JSON;
 
 public class SortTest {
+	public static int[] NUMBERS = {49, 38, 65, 97, 76, 13, 27, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 56, 17, 18, 23, 34, 15, 35, 25, 53, 51};
 	 
 	 public static void main(String[] args) {
-		 final int[] NUMBERS = {49, 38, 65, 97, 76, 13, 27, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 56, 17, 18, 23, 34, 15, 35, 25, 53, 51};
-//		 insertSort(NUMBERS);
+//		 insertSort();
+		 shellSort();
+//		 shellSort()
+//		 shellSort(NUMBERS);
+		 System.out.println(JSON.toJSONString(NUMBERS) + "   sorted");
 		 
-		 shellSort(NUMBERS);
 	}
 	 
 	 /**
 	  * 插入排序
-	  * 
-	  * 
-	 * @param arr
-	 */
-	public static void insertSort(int [] arr){
-		 for(int i=1;i<arr.length;i++){
-			 //把最新一个保存起来
-			 int tmp = arr[i];
-			 int j = i-1;
-			 //已经排过序的和要排序的比较
-			 for(; j>=0 && arr[j]>tmp ; j--){
-				 //已经拍过序的依次往后移，给要排序的留一个位置
-				 arr[j+1] = arr[j];
+	  */
+	 public static void insertSort(){
+		 int length = NUMBERS.length;
+		 if(length<=1)return;
+		 int insert = 0;
+		 for(int i=1;i<length;i++){
+			 insert = NUMBERS[i];
+			 
+			 int j=i-1;
+			 while(j>=0 && NUMBERS[j]>insert){
+				 NUMBERS[j+1] = NUMBERS[j--];
 			 }
-			 arr[j+1] = tmp;
+			 NUMBERS[j+1] = insert;
 		 }
-		 System.out.println(JSON.toJSONString(arr) + "sorted");
 	 }
-	
-	
-    public static void shellSort(int[] array) { 
-    	long curr = System.currentTimeMillis();
-        int i;  
-        int j;  
-        int temp;  
-        int gap = 1;  
-        int len = array.length;  
-        while (gap < len / 3) { gap = gap * 3 + 1; }  
-        for (; gap > 0; gap /= 3) {  
-            for (i = gap; i < len; i++) {  
-                temp = array[i];  
-                for (j = i - gap; j >= 0 && array[j] > temp; j -= gap) {  
-                    array[j + gap] = array[j];  
-                }  
-                array[j + gap] = temp;  
-            }  
-        }  
-        System.out.println(System.currentTimeMillis()-curr);
-        System.out.println(Arrays.toString(array) + " shellSort");  
-    }  
+	 
+	 /**
+	  * 希尔排序
+	  * https://www.cnblogs.com/LeslieXia/p/5814571.html
+	  */
+	 public static void shellSort(){
+		 int len = NUMBERS.length;
+		 for(int i=len/2; i>=1;i/=2){
+			 for(int j=i;j<len;j++){
+				 int tmp = NUMBERS[j];
+				 int k = j-i;
+				 while(k>=0 && tmp < NUMBERS[k]){
+					 NUMBERS[k+i] = NUMBERS[k];
+					 k -= i;
+				 }
+				 NUMBERS[k+i] = tmp;
+			 }
+		 }
+	 }
+	 
+	 /**
+	  * 快速排序
+	  * https://www.cnblogs.com/LeslieXia/p/5815069.html
+	  */
+	 public static void quickSort(){
+		 
+	 }
 	 
 }
 
